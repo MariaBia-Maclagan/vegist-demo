@@ -46,7 +46,6 @@ export default function Search() {
         .then((updatedFavs) => setFavorites(updatedFavs))
         .catch((e) => console.error(e));
       setDetails(data.results);
-      //   console.log(data);
     } catch (err) {
       console.error(err);
     }

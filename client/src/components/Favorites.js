@@ -35,7 +35,6 @@ export default function Favorites() {
   };
 
   const deleteFavorite = (favorite) => {
-    console.log("deleteFavorite api", favorite);
     fetch(`/api/vegist/${favorite}`, {
       method: "DELETE",
       headers: {
@@ -45,7 +44,6 @@ export default function Favorites() {
       .then((res) => res.json())
       .then((updatedFavs) => {
         setFavorites(updatedFavs);
-        console.log("deleteFavorite api update", updatedFavs);
       })
       .catch((e) => console.error(e));
   };
