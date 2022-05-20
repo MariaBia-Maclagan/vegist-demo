@@ -41,7 +41,7 @@ router.post("/vegist", (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/vegist/:id", async (req, res) => {
   let favorite_id = req.params.id;
   try {
     let sql = `SELECT * FROM favorites WHERE id = ${favorite_id}`;
