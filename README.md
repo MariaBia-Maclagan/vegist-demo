@@ -1,6 +1,8 @@
 # Vegist 
 
-**Vegist** is simple Vegan recipe search engine app that fetches data from spoonacular food API.
+## Project Description 
+
+**Vegist** is a simple Vegan recipe search engine app that fetches data from spoonacular food API.
 
 This is a fullstack project that was build using React, Node/Express, and MySQL.
 
@@ -8,7 +10,7 @@ This is a fullstack project that was build using React, Node/Express, and MySQL.
 
 ![Vegist Search](images/Vegist_search.png)
 
-## Setup 
+## Project Setup 
 
 ### Dependencies
 
