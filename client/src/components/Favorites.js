@@ -50,12 +50,11 @@ export default function Favorites() {
 
   return (
     <div className="card--list">
-      <h2 className="card--title">Saved Recipes</h2>
       {favorites.map((favorite, index) => {
         return (
-          <div className="card-content" key={index}>
+          <div className="card--content" key={index}>
             <div className="card">
-              {favorite.title}
+               <h2 className="card--title">{favorite.title}</h2>
               <a href={favorite.source_url}>
                 <button type="button" className="btn--view">
                   link to recipe

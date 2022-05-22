@@ -77,6 +77,7 @@ export default function Search() {
                   className="card--image"
                   src={`${recipe.image}`}
                   alt={recipe.title}
+                  
                 />
                 <button
                   type="button"

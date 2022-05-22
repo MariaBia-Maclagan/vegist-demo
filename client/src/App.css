@@ -16,6 +16,7 @@ h1 {
 
 h2 {
   font-family: Georgia, "Times New Roman", Times, serif;
+  text-align: center;
 }
 
 .main--image {
@@ -78,7 +79,7 @@ h2 {
 
 .card {
   padding: 2rem 4rem;
-  box-shadow: 1px 1px 5px rgb(207, 207, 207);
+  /* box-shadow: 1px 1px 1px rgb(207, 207, 207); */
   border-radius: 20px;
   margin-bottom: 2rem;
   background-color: rgb(255, 255, 255);
@@ -110,10 +111,10 @@ h2 {
   background-color: rgb(96, 136, 15);
   color: white;
   font-size: 15px;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border: none;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .btn--save {
@@ -143,7 +144,7 @@ h2 {
   position: absolute;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  top: 35%;
+  top: 40%;
   left: 93%;
   font-size: 15px;
   padding: 5px 8px;
