@@ -20,7 +20,6 @@ function App() {
           </button>
         </Link>
       </div>
-
       <div className="container">
         <h1>
           Vegist
