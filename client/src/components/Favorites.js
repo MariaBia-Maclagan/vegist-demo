@@ -52,23 +52,21 @@ export default function Favorites() {
     <div className="card--list">
       {favorites.map((favorite, index) => {
         return (
-          <div className="card--content" key={index}>
-            <div className="card">
-               <h2 className="card--title">{favorite.title}</h2>
-              <a href={favorite.source_url}>
-                <button type="button" className="btn--view">
-                  link to recipe
-                </button>
-              </a>
-              <button
-                type="button"
-                className="btn--delete btn btn-danger"
-                style={{ margin: "10px" }}
-                onClick={() => handleDelete(favorite.id)}
-              >
-                X
+          <div className="card" key={index}>
+            <h2 className="card--title--fav">{favorite.title}</h2>
+            <a href={favorite.source_url}>
+              <button type="button" className="btn--view">
+                link to recipe
               </button>
-            </div>
+            </a>
+            <button
+              type="button"
+              className="btn--delete btn btn-danger"
+              style={{ margin: "10px" }}
+              onClick={() => handleDelete(favorite.id)}
+            >
+              X
+            </button>
           </div>
         );
       })}

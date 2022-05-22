@@ -70,7 +70,7 @@ export default function Search() {
         {recipes
           .filter((recipe) => recipe)
           .map((recipe) => (
-            <div className="card--content">
+            <div>
               <h3 className="card--title">{recipe.title}</h3>
               <div className="card" key={recipe.id}>
                 <img
