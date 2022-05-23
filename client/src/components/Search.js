@@ -43,7 +43,7 @@ export default function Search() {
         }),
       })
         .then((res) => res.json())
-        .then((updatedFavs) => setFavorites(updatedFavs))
+        .then((updatedFav) => setFavorites(updatedFav))
         .catch((e) => console.error(e));
       setDetails(data.results);
     } catch (err) {

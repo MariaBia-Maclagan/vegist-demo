@@ -42,8 +42,8 @@ export default function Favorites() {
       },
     })
       .then((res) => res.json())
-      .then((updatedFavs) => {
-        setFavorites(updatedFavs);
+      .then((updatedFav) => {
+        setFavorites(updatedFav);
       })
       .catch((e) => console.error(e));
   };
