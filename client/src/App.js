@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Favorites from "./components/Favorites";
 import Search from "./components/Search";
-import MainPhoto from "./Images/beet.png";
+import MainPhoto from "./images/beet.png";
 import "./App.css";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
       <div className="container">
         <h1>
           Vegist
-          <img className="main--image" src={MainPhoto} alt="food" />
+          <img className="main--image" src={MainPhoto} alt="vegetable" />
         </h1>
         <Routes>
           <Route exact path="/" element={<Search />} />

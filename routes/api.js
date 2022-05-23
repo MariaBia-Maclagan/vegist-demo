@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const db = require("../model/helper");
 
 const sendAllFavorites = (req, res) => {
@@ -15,11 +15,11 @@ router.get("/vegist", (req, res) => {
 });
 
 router.get("/vegist/:id", async (req, res) => {
-  let favorite_id = req.params.id;
+  let favoriteId = req.params.id;
   let sql = `
     SELECT *
     FROM favorites
-    WHERE id = ${favorite_id}
+    WHERE id = ${favoriteId}
   `;
   ("catch");
   try {
@@ -31,7 +31,6 @@ router.get("/vegist/:id", async (req, res) => {
 });
 
 router.post("/vegist", (req, res) => {
-  console.log(req);
   db(
     `INSERT INTO favorites (title, source_url) VALUES ("${req.body.title}" , "${req.body.source_url}");`
   )
@@ -42,12 +41,12 @@ router.post("/vegist", (req, res) => {
 });
 
 router.delete("/vegist/:id", async (req, res) => {
-  let favorite_id = req.params.id;
+  let favoriteId = req.params.id;
   try {
-    let sql = `SELECT * FROM favorites WHERE id = ${favorite_id}`;
+    let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
     let results = await db(sql);
     if (results.data.length === 1) {
-      sql = `DELETE FROM favorites WHERE id = ${favorite_id}`;
+      sql = `DELETE FROM favorites WHERE id = ${favoriteId}`;
       await db(sql);
       results = await db("SELECT * from favorites");
       res.send(results.data);

@@ -57,6 +57,7 @@ export default function Search() {
         <input
           className="input"
           type="text"
+          onfocus="this.value=''"
           name="query"
           placeholder="favorite cuisine...?"
           value={cuisine}
