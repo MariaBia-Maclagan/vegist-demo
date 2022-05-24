@@ -57,7 +57,7 @@ export default function Favorites() {
               {favorite.title}
             </h2>
             <a href={favorite.source_url} className="link-secondary">
-                link to recipe
+              link to recipe
             </a>
             <button
               type="button"

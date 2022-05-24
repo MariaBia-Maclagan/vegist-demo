@@ -17,15 +17,11 @@ router.get("/vegist", (req, res) => {
 
 router.get("/vegist/:id", async (req, res) => {
   let favoriteId = req.params.id;
+  let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
 
-  let sql = `
-    SELECT *
-    FROM favorites
-    WHERE id = ${favoriteId}
-  `;
-  ("catch");
   try {
     let results = await db(sql);
+
     res.send(results.data[0]);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -65,6 +61,7 @@ router.delete("/vegist/:id", async (req, res) => {
   try {
     let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
     let results = await db(sql);
+
     if (results.data.length === 1) {
       sql = `DELETE FROM favorites WHERE id = ${favoriteId}`;
       await db(sql);
