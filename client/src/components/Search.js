@@ -7,14 +7,13 @@ export default function Search() {
 
   const searchFood = async (e) => {
     e.preventDefault();
+
     fetch("/api/vegist/recipes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        cuisine: cuisine,
-      }),
+      body: JSON.stringify({ cuisine: cuisine }),
     })
       .then((res) => res.json())
       .then((data) => {

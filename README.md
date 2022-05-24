@@ -18,6 +18,8 @@ This is a full-stack MVP project that was build using React, Node.js, Express, a
 
 - `cd client` and run `yarn` install dependencies related to React.
 
+- Run `npm install react-router-dom` to install React Router.
+
 ### Database
 
 - Create `.env` file in project directory and add:
@@ -25,13 +27,21 @@ This is a full-stack MVP project that was build using React, Node.js, Express, a
 ```
 DB_NAME=vegist
 DB_PASS=YOUR_PASSWORD
-API_KEY=YOUR_API_KEY
 ```
 - Type `mysql -u root -p` to access the MySQL CLI using your password.
 
 - In the MySQL CLI, type `create database vegist;` to create a database in MySQL.
 
 - In the MySQL CLI, type `create table favorites (id int not null auto_increment, title varchar(255), source_url varchar(255), primary key (id));` to create a table favorites, and add the columns.
+
+### API
+
+- Generate and save API key in `.env` file in project directory:
+
+```
+API_KEY=YOUR_API_KEY
+```
+_Resource: https://spoonacular.com/food-api_
 
 ### Development Servers
 
@@ -40,17 +50,13 @@ API_KEY=YOUR_API_KEY
 - Test client with: `http://localhost:3000`
 - Test API with: `http://localhost:5000/api`
   
-## Database Schema  
+## MySQL DB Schema  
 
 ![DB Schema](images/db_schema.png)
 
 ## API Routes Design
 
 ![API Routes](images/API_routes.png)
-
-## Resources
-
-API: https://spoonacular.com/food-api
 
 ## Notes
 

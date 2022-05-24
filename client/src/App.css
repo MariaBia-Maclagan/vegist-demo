@@ -3,7 +3,6 @@ body {
   padding: 5px;
   background-color: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
-  background-color: rgba(255, 255, 255, 0.85);
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -11,7 +10,7 @@ h1 {
   text-align: center;
   font-weight: 900;
   font-size: 9rem;
-  padding: 20px;
+  padding: 10px;
 }
 
 h2 {
@@ -54,7 +53,8 @@ h2 {
 }
 
 .button {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ddd;
   padding: 1rem 2rem;
   border-radius: 20px;
   font-size: 16px;
@@ -62,7 +62,7 @@ h2 {
 }
 
 .button:hover {
-  background-color: rgba(245, 245, 245, 0.85);
+  background-color: rgba(247, 247, 247, 0.85);
 }
 
 .card--list {
@@ -98,32 +98,24 @@ h2 {
 
 .btn--save {
   position: absolute;
-  top: 60%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: rgb(96, 136, 15);
-  color: white;
+  top: 45%;
+  left: 68%;
+  background-color: rgb(179, 223, 149);
   font-size: 15px;
   padding: 10px 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .btn--save:hover {
-  background-color: rgb(84, 117, 17);
-}
-
-.btn--view:hover {
-  background-color: rgb(84, 117, 17);
+  /* background-color: rgb(84, 117, 17); */
+  background-color: rgb(166, 224, 127);
 }
 
 .btn--delete {
   position: absolute;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  top: 50%;
-  left: 93%;
+  top: 35%;
+  left: 90%;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 10px;
