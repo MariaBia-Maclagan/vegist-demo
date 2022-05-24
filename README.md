@@ -10,8 +10,6 @@ This is a full-stack MVP project that was build using React, Node.js, Express, a
 
 ![Vegist Search](images/Vegist_search.png)
 
-![Vegist Favorites](images/Vegist_favorites.png)
-
 ## Project Setup 
 
 ### Dependencies

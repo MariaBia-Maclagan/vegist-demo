@@ -49,14 +49,30 @@ export default function Favorites() {
   };
 
   return (
-    <div className="card--list">
+    <div className="card text-center card--list">
+      <div
+        className="card-header card--header"
+        style={{ borderRadius: "15px" }}
+      >
+        Favorite Recipes
+      </div>
       {favorites.map((favorite, index) => {
         return (
           <div className="card" key={index}>
-            <h2 className="card--title--fav">{favorite.title}</h2>
+            <h2 className="card-title" style={{ margin: "10px" }}>
+              {favorite.title}{" "}
+            </h2>
             <a href={favorite.source_url}>
-              <button type="button" className="btn--view">
-                link to recipe
+              <button
+                type="button"
+                className="btn btn-outline-dark"
+                style={{
+                  alignContent: "center",
+                  margin: "30px",
+                  borderRadius: "10px",
+                }}
+              >
+                view recipe
               </button>
             </a>
             <button

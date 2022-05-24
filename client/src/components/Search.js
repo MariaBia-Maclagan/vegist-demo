@@ -3,23 +3,25 @@ import React, { useState } from "react";
 export default function Search() {
   const [cuisine, setCuisine] = useState("");
   const [recipes, setRecipe] = useState([]);
-  const [details, setDetails] = useState();
   const [favorites, setFavorites] = useState([]);
-
-  const API_KEY = "fad10ccfd0c54a6381190e1d795d4647";
 
   const searchFood = async (e) => {
     e.preventDefault();
-
-    const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=vegan&number=200&apiKey=${API_KEY}`;
-
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setRecipe(data.results);
-    } catch (err) {
-      console.error(err);
-    }
+    fetch("/api/vegist/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cuisine: cuisine,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setRecipe(data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
@@ -27,28 +29,18 @@ export default function Search() {
   };
 
   const handleSubmit = async (e) => {
-    const url = `https://api.spoonacular.com/recipes/${e}/information?includeNutrition=false&apiKey=${API_KEY}`;
-
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      fetch("/api/vegist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: data.title,
-          source_url: data.sourceUrl,
-        }),
-      })
-        .then((res) => res.json())
-        .then((updatedFav) => setFavorites(updatedFav))
-        .catch((e) => console.error(e));
-      setDetails(data.results);
-    } catch (err) {
-      console.error(err);
-    }
+    fetch("/api/vegist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: e,
+      }),
+    })
+      .then((res) => res.json())
+      .then((updatedFav) => setFavorites(updatedFav))
+      .catch((e) => console.error(e));
   };
 
   return (

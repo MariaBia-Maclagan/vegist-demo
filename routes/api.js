@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../model/helper");
+require("dotenv").config();
 
 const sendAllFavorites = (req, res) => {
   db("SELECT * FROM favorites ORDER BY id ASC;")
@@ -30,14 +31,31 @@ router.get("/vegist/:id", async (req, res) => {
   }
 });
 
-router.post("/vegist", (req, res) => {
-  db(
-    `INSERT INTO favorites (title, source_url) VALUES ("${req.body.title}" , "${req.body.source_url}");`
-  )
-    .then(() => {
-      sendAllFavorites(req, res);
+router.post("/vegist/recipes", (req, res) => {
+  console.log(req.body);
+  const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.body.cuisine}&diet=vegan&number=200&apiKey=${process.env.API_KEY}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      res.send(data.results);
     })
     .catch((err) => res.status(500).send(err));
+});
+
+router.post("/vegist", async (req, res) => {
+  const url = `https://api.spoonacular.com/recipes/${req.body.id}/information?includeNutrition=false&apiKey=${process.env.API_KEY}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      db(
+        `INSERT INTO favorites (title, source_url) VALUES ("${data.title}" , "${data.source_url}");`
+      )
+        .then(() => {
+          sendAllFavorites(req, res);
+        })
+        .catch((err) => res.status(500).send(err));
+    });
 });
 
 router.delete("/vegist/:id", async (req, res) => {
