@@ -18,7 +18,6 @@ export default function Search() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setRecipe(data);
       })
       .catch((err) => console.log(err));

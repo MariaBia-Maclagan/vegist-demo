@@ -52,7 +52,7 @@ export default function Favorites() {
     <div className="card text-center card--list">
       <div
         className="card-header card--header"
-        style={{ borderRadius: "15px" }}
+        style={{ borderRadius: "10px" }}
       >
         Favorite Recipes
       </div>

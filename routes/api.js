@@ -17,6 +17,7 @@ router.get("/vegist", (req, res) => {
 
 router.get("/vegist/:id", async (req, res) => {
   let favoriteId = req.params.id;
+
   let sql = `
     SELECT *
     FROM favorites
@@ -32,8 +33,8 @@ router.get("/vegist/:id", async (req, res) => {
 });
 
 router.post("/vegist/recipes", (req, res) => {
-  console.log(req.body);
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.body.cuisine}&diet=vegan&number=200&apiKey=${process.env.API_KEY}`;
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -49,7 +50,7 @@ router.post("/vegist", async (req, res) => {
     .then((res) => res.json())
     .then((data) => {
       db(
-        `INSERT INTO favorites (title, source_url) VALUES ("${data.title}" , "${data.source_url}");`
+        `INSERT INTO favorites (title, source_url) VALUES ("${data.title}" , "${data.sourceUrl}");`
       )
         .then(() => {
           sendAllFavorites(req, res);
@@ -60,6 +61,7 @@ router.post("/vegist", async (req, res) => {
 
 router.delete("/vegist/:id", async (req, res) => {
   let favoriteId = req.params.id;
+
   try {
     let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
     let results = await db(sql);
