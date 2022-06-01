@@ -13,7 +13,7 @@ export default function Summary({recipeId}){
 //              });
 // }
 
-const showSummary = async (recipeId) =>{
+const showSummary =  (recipeId) =>{
     fetch("/api/info", {
         method: "POST",
         headers: {
@@ -21,10 +21,13 @@ const showSummary = async (recipeId) =>{
         },
         body: JSON.stringify({ recipeId: recipeId }),
       })
-        .then((res) => res.json())
+      
+        .then(res => res.json())
+        
         .then((data) => {
           setSummary(data);
         })
+        
         .catch((err) => console.log(err));
     };
 
