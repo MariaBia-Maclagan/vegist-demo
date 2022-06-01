@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require("../model/helper");
 require("dotenv").config();
 
+const fetch = require("node-fetch"); // installed fetch on back end to fetch from api
+
 const sendAllFavorites = (req, res) => {
   db("SELECT * FROM favorites ORDER BY id ASC;")
     .then((results) => {
@@ -28,11 +30,23 @@ router.get("/vegist/:id", async (req, res) => {
   }
 });
 
+router.post("/info", (req, res) => {
+  const url = `https://api.spoonacular.com/recipes/${req.body.recipeId}/summary?&apiKey=${process.env.API_KEY}`;
+
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    res.send(data.results);
+  })
+  .catch((err) => res.status(500).send(err));
+});
+
+
 router.post("/vegist/recipes", (req, res) => {
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${req.body.cuisine}&diet=vegan&number=200&apiKey=${process.env.API_KEY}`;
 
   fetch(url)
-    .then((res) => res.json())
+    .then((response) => response.json())
     .then((data) => {
       res.send(data.results);
     })
@@ -73,6 +87,8 @@ router.delete("/vegist/:id", async (req, res) => {
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
+
+
 });
 
 module.exports = router;

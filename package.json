@@ -19,7 +19,9 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
+    "node-fetch": "2",
     "nodemon": "^2.0.16",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "spoonacular-api-library": "^1.0.5"
   }
 }

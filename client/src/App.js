@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Favorites from "./components/Favorites";
 import Search from "./components/Search";
-import MainPhoto from "./images/beet.png";
+import MainPhoto from "./Images/beet.png";
 import "./App.css";
 
 function App() {

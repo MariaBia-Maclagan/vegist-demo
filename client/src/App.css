@@ -107,9 +107,24 @@ h2 {
   border-radius: 5px;
 }
 
+.btn--info {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  background-color: rgb(229, 236, 225);
+  font-size: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
 .btn--save:hover {
   /* background-color: rgb(84, 117, 17); */
   background-color: rgb(166, 224, 127);
+}
+.btn--info:hover{
+  color : rgb(40, 82, 11);
+  background-color: rgb(247, 251, 244);
 }
 
 .btn--delete {

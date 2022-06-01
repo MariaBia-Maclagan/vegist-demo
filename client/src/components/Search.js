@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Summary from "./Summary"
+
 
 export default function Search() {
   const [cuisine, setCuisine] = useState("");
@@ -24,6 +26,7 @@ export default function Search() {
 
   const handleChange = (event) => {
     setCuisine(event.target.value);
+    console.log(cuisine)
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +50,7 @@ export default function Search() {
         <input
           className="input"
           type="text"
-          onfocus="this.value=''"
+          onFocus="this.value=''"
           name="query"
           placeholder="favorite cuisine...?"
           value={cuisine}
@@ -76,6 +79,7 @@ export default function Search() {
                 >
                   add to favorites
                 </button>
+                <Summary recipeId = {recipe.id}/>
               </div>
             </div>
           ))}
