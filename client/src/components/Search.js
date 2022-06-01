@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Summary from "./Summary"
+import Summary from "./Summary";
 
 
 export default function Search() {

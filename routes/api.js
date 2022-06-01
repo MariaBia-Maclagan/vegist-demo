@@ -36,7 +36,7 @@ router.post("/info", (req, res) => {
   fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    res.send(data.results);
+    res.send(data);
   })
   .catch((err) => res.status(500).send(err));
 });

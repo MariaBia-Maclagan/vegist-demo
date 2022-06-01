@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function Summary({recipeId}){
     const [summary, setSummary] = useState ("");
+    const [viewInfo, setViewInfo] = useState (true);
 
 // const showSummary = (recipeId) =>{
 //     fetch (`https://api.spoonacular.com/recipes/${recipeId}/summary?&apiKey=67625a82779c459881a37a2fff85e0ca`)
@@ -14,6 +15,8 @@ export default function Summary({recipeId}){
 // }
 
 const showSummary =  (recipeId) =>{
+    setViewInfo(!viewInfo);
+    console.log(viewInfo)
     fetch("/api/info", {
         method: "POST",
         headers: {
@@ -29,14 +32,16 @@ const showSummary =  (recipeId) =>{
         })
         
         .catch((err) => console.log(err));
+     
     };
 
 
     return(
         <div>
-        <button type="submit" className="btn--info" onClick={() =>showSummary(recipeId)}>view more</button>
-        <div>
-        <div className="content" dangerouslySetInnerHTML={{__html: summary.summary}}></div>
+        <button type="submit" className="btn--info" onClick={() =>showSummary(recipeId)}> { viewInfo ? "show more" : "show less" }</button>
+        <div> 
+            {/* {!viewInfo ? summary : " "}  */}
+        <div className="content" dangerouslySetInnerHTML={{__html: summary.summary}}></div> 
         </div>
         </div>
     )

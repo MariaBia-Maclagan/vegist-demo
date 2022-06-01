@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Notes from "./Notes";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -67,6 +68,7 @@ export default function Favorites() {
             >
               X
             </button>
+            <Notes />
           </div>
         );
       })}
