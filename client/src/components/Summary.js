@@ -38,11 +38,17 @@ const showSummary =  (recipeId) =>{
  
 
     return(
-        <div>
+      <div >
+      <div className="row">
+        <div className="col">
+        <div >
         <button type="submit" className="btn--info" onClick={() =>showSummary(recipeId)}> { viewInfo ? "show more" : "show less" }</button>
-        <div> 
+        <div className="col"> 
             {!viewInfo &&  <div className="content" dangerouslySetInnerHTML={{__html: summary.summary}}></div> } 
         
+        </div>
+        </div>
+        </div>
         </div>
         </div>
     )

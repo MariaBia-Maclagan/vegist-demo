@@ -64,14 +64,19 @@ export default function Search() {
         {recipes
           .filter((recipe) => recipe)
           .map((recipe) => (
-            <div>
+            <div >
               <h3 className="card--title">{recipe.title}</h3>
-              <div className="card" key={recipe.id}>
+              <div className="card md-3" key={recipe.id}>
+                <div className="row">
+                  <div className="col-md-8">
                 <img
-                  className="card--image"
+                  className="card--image img-fluid"
                   src={`${recipe.image}`}
                   alt={recipe.title}
                 />
+                </div>
+                <div className="col-md-4">
+                  <div className="card-body">
                 <button
                   type="button"
                   className="btn--save"
@@ -79,7 +84,12 @@ export default function Search() {
                 >
                   add to favorites
                 </button>
+                </div>
+                </div>
+                <div className="col-md-12 mt-2">
                 <Summary recipeId = {recipe.id}/>
+                </div>
+                </div>
               </div>
             </div>
           ))}

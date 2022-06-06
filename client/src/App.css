@@ -83,7 +83,7 @@ h2 {
 }
 
 .card--image {
-  width: 50%;
+  /* width: 50%; */
   filter: grayscale(100%);
   height: auto;
 }
@@ -97,9 +97,9 @@ h2 {
 }
 
 .btn--save {
-  position: absolute;
+  /* position: absolute;
   top: 45%;
-  left: 68%;
+  left: 68%; */
   background-color: rgb(179, 223, 149);
   font-size: 15px;
   padding: 10px 15px;
@@ -108,9 +108,7 @@ h2 {
 }
 
 .btn--info {
-  position: absolute;
-  top: 90%;
-  left: 10%;
+ 
   background-color: rgb(229, 236, 225);
   font-size: 15px;
   padding: 10px 15px;

@@ -21,7 +21,7 @@ con.connect(function(err) {
   let sql = "DROP TABLE if exists favourites; DROP TABLE if exists notes; CREATE TABLE favorites (id INT NOT NULL AUTO_INCREMENT, title varchar(255) NOT NULL, source_url varchar(255) NOT NULL, PRIMARY KEY (id)); CREATE TABLE notes (id INT NOT NULL AUTO_INCREMENT, favoritesId INT NOT NULL, notes varchar(255) NOT NULL,PRIMARY KEY (id)); ALTER TABLE notes ADD CONSTRAINT notes_fk0 FOREIGN KEY (favoritesId) REFERENCES favorites(id);";
   con.query(sql, function (err, result) {
     if (err) throw err;
-    console.log("Table creation `favorites` was successful!");
+    console.log("Table creation `favorites` and `notes` was successful!");
 
     console.log("Closing...");
   });

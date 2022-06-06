@@ -32,7 +32,7 @@ DB_PASS=YOUR_PASSWORD
 
 - In the MySQL CLI, type `create database vegist;` to create a database in MySQL.
 
-- In the MySQL CLI, type `create table favorites (id int not null auto_increment, title varchar(255), source_url varchar(255), primary key (id));` to create a table favorites, and add the columns.
+- In the MySQL CLI, type `create table favorites (id int not null auto_increment, title varchar(255), source_url varchar(255), primary key (id)); create table notes (id int not null auto_increment, favoritesId int not null, notes varchar(255))ALTER TABLE notes ADD CONSTRAINT notes_fk0 FOREIGN KEY (favoritesId) REFERENCES favorites(id);` to create a table favorites, and add the columns.
 
 ### API
 

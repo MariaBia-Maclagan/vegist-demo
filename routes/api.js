@@ -88,6 +88,13 @@ router.delete("/vegist/:id", async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 
+router.post("/vegist/:id", async (req, res) => {
+  let favoriteId = req.params.id;
+  let notes = req.body;
+  // `INSERT into notes (notes) VALUES("${notes} WHERE favoriteId=${favoriteId}")
+
+
+})
 
 });
 
