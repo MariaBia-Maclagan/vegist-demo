@@ -26,7 +26,7 @@ export default function Search() {
 
   const handleChange = (event) => {
     setCuisine(event.target.value);
-    console.log(cuisine)
+    //console.log(cuisine)
   };
 
   const handleSubmit = async (e) => {
