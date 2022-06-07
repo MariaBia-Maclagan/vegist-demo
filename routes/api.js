@@ -88,10 +88,12 @@ router.delete("/vegist/:id", async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 
+})
 router.post("/vegist/:id", async (req, res) => {
   let favoriteId = req.params.id;
-  let notes = req.body;
-  let sql = `INSERT into notes (notes) VALUES("${notes}" WHERE favoriteId="${favoriteId}")`
+  let {notes} = req.body;
+  let sql = `INSERT INTO notes (favoritesId, notes) VALUES("${favoriteId}","${notes}" ) ;`
+  console.log(sql)
   
   await db(sql)
   .then(result =>{
@@ -99,9 +101,6 @@ router.post("/vegist/:id", async (req, res) => {
   })
   .catch(err => res.status(500).send(err));
 });
-
-})
-
 
 
 module.exports = router;

@@ -68,7 +68,7 @@ export default function Favorites() {
             >
               X
             </button>
-            <Notes />
+            <Notes favorite ={favorite.id}/>
           </div>
         );
       })}
