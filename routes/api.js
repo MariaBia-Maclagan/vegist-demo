@@ -74,13 +74,13 @@ router.delete("/vegist/:id", async (req, res) => {
 
   try {
     let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
-    let sqlnote = `DELETE FROM notes WHERE favoritesId = ${favoriteId}`;
+  
     let results = await db(sql);
 
     if (results.data.length === 1) {
-      sql = `DELETE FROM favorites WHERE id = ${favoriteId}`; 
+      sql = `DELETE FROM notes WHERE favoritesId = ${favoriteId};  DELETE FROM favorites WHERE id = ${favoriteId}`; 
       
-      await db(sqlnote);
+     
       await db(sql);
       results = await db("SELECT * from favorites");
       res.send(results.data);
