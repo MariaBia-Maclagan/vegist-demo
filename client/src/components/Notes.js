@@ -31,11 +31,34 @@ const postNote =(favorite)=>{
    .then(response => response.json())
    .then(updateNotes => {
        setAddNote(updateNotes);
+       console.log(addNote)
    })
    .catch(err => console.error(err));
 }
+
+const handleGetNote =(favorite) =>{
+      getNote(favorite);
+}
+
+const getNote =(favorite)=>{
+    fetch(`api/notes/${favorite}`)
+        .then(res => res.json())
+        .then(response =>{ setAddNote(response)})
+        .catch(err => console.error(err))
+    
+}
+
     return (
-        <div>
+        <div >
+            <ul className="list mt-3 ">
+                {addNote.filter( note => note.favoritesId === favorite ).map( note => {
+                    return(
+                        <li key={note.id} >
+                            {note.notes}
+                        </li>
+                    )
+                })}
+            </ul>
                 
             <div className="d-flex flex-row mt-3 justify-content-center">
             <div className="p-2 ">
@@ -49,6 +72,8 @@ const postNote =(favorite)=>{
                  <button className="btn"
                 type="submit"
                 onClick={()=>handleSubmitNote(favorite)}>add note</button>
+                <button className="btn" type="submit"
+                onClick={()=>handleGetNote(favorite)}>view note</button>
           
             </div>
             </div>

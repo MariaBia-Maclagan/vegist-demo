@@ -74,10 +74,13 @@ router.delete("/vegist/:id", async (req, res) => {
 
   try {
     let sql = `SELECT * FROM favorites WHERE id = ${favoriteId}`;
+    let sqlnote = `DELETE FROM notes WHERE favoritesId = ${favoriteId}`;
     let results = await db(sql);
 
     if (results.data.length === 1) {
-      sql = `DELETE FROM favorites WHERE id = ${favoriteId}`;
+      sql = `DELETE FROM favorites WHERE id = ${favoriteId}`; 
+      
+      await db(sqlnote);
       await db(sql);
       results = await db("SELECT * from favorites");
       res.send(results.data);
@@ -92,15 +95,28 @@ router.delete("/vegist/:id", async (req, res) => {
 router.post("/vegist/:id", async (req, res) => {
   let favoriteId = req.params.id;
   let {notes} = req.body;
-  let sql = `INSERT INTO notes (favoritesId, notes) VALUES("${favoriteId}","${notes}" ) ;`
-  console.log(sql)
+  let sqladd = `INSERT INTO notes (favoritesId, notes) VALUES("${favoriteId}","${notes}" ) ;`
+  let sqlselect= `SELECT * FROM notes;`
   
-  await db(sql)
+  await db(sqladd)
+  await db(sqlselect)
   .then(result =>{
     res.send(result.data);
   })
   .catch(err => res.status(500).send(err));
-});
+})
+
+router.get("/notes/:id", async (req, res) => {
+  let favoriteId = req.params.id;
+  let sql =`SELECT * FROM notes WHERE favoritesId=${favoriteId}`
+
+  await db(sql)
+  .then(response =>{
+    res.send(response.data);
+  })
+  .catch(err => res.status(500).send(err));
+})
+;
 
 
 module.exports = router;

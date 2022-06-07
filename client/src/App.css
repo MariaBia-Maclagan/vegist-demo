@@ -133,3 +133,7 @@ h2 {
   padding: 4px 10px;
   border-radius: 10px;
 }
+.list{
+  list-style: none;
+  color: rgb(116, 3, 28);
+}
