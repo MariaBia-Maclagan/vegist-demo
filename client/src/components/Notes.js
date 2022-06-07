@@ -53,7 +53,7 @@ const getNote =(favorite)=>{
             <ul className="list mt-3 ">
                 {addNote.filter( note => note.favoritesId === favorite ).map( note => {
                     return(
-                        <li key={note.id} >
+                        <li className="d-flex" key={note.id} >
                             {note.notes}
                         </li>
                     )

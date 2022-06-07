@@ -4,19 +4,10 @@ export default function Summary({recipeId}){
     const [summary, setSummary] = useState ("");
     const [viewInfo, setViewInfo] = useState (true);
 
-// const showSummary = (recipeId) =>{
-//     fetch (`https://api.spoonacular.com/recipes/${recipeId}/summary?&apiKey=67625a82779c459881a37a2fff85e0ca`)
-//     .then(response => {
-//               return response.json();
-//             })
-//             .then(data => {
-//                 setSummary(data)
-//              });
-// }
 
 const showSummary =  (recipeId) =>{
     setViewInfo(!viewInfo);
-    console.log(viewInfo)
+    // console.log(viewInfo)
     fetch("/api/info", {
         method: "POST",
         headers: {
