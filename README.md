@@ -53,6 +53,7 @@ _Resource: https://spoonacular.com/food-api_
 ## MySQL DB Schema  
 
 ![DB Schema](images/db_schema.png)
+![DB Schema](images/notes.png)
 
 ## API Routes Design
 
